@@ -22,9 +22,9 @@ yarn steup
 ```
 
 ### Configure 
-#### Configure database connection
+#### Configure database connection in your backend dir
 - Create a new MySql database
-- Edit your `.env.xxx` files to config database connection
+- Edit your `backend/.env` files to config database connection
 ```bash
 DB_CLIENT=mysql
 DB_HOST=localhost
@@ -35,6 +35,8 @@ DB_PORT=3306
 ```
 - Migrate database
 ```bash
+# move to your backend dir
+cd backend
 # Run command to migrate/seed database
 yarn sequelize db:migrate
 ```
@@ -51,7 +53,7 @@ $ yarn add --save oracledb # Oracle Database
 
 ### Run
 ```bash
-# Run development
+# Run development from your root dir of the apps to run both frontend and backend app
 yarn dev
 
 # after run successful, access the link below to check your installation
