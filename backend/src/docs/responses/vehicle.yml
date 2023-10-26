@@ -1,0 +1,30 @@
+components:
+  responses:
+    Vehicle:
+      type: object
+      properties:
+        id:
+          type: number
+          example: 1
+        licenseNumber:
+          type: string
+          example: ZTB8532
+        licenseState:
+          type: string
+          example: PA
+        vin:
+          type: string
+          example: 3HAEUMML0NL514491
+        vehicleType:
+          type: object
+          properties:
+            id:
+              type: number
+              example: 1
+            name:
+              type: string
+              example: ZTB8532
+            unit:
+              type: number
+              description: "1: track; 2: trailer"
+              enum: [1,2]

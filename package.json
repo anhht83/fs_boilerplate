@@ -1,0 +1,15 @@
+{
+  "license": "UNLICENSED",
+  "scripts": {
+    "frontend": "yarn dev --prefix ../frontend/",
+    "backend": "yarn dev --prefix ../backend/",
+    "dev": "concurrently \"cd backend && yarn dev\" \"cd frontend && yarn dev\"",
+    "build": "concurrently \"cd frontend && yarn build\" \"cd backend && yarn build\"",
+    "setup:frontend": "cd frontend && yarn",
+    "setup:backend": "cd backend && yarn",
+    "setup": "concurrently yarn \"yarn setup:frontend\" \"yarn setup:backend\""
+  },
+  "dependencies": {
+    "concurrently": "^7.6.0"
+  }
+}

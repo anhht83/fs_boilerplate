@@ -1,0 +1,37 @@
+components:
+  responses:
+    Inspection:
+      type: object
+      properties:
+        id:
+          type: number
+          example: 1
+        reportNumber:
+          type: string
+          example: PAD205317209
+        reportState:
+          type: string
+          example: PA
+        timeWeight:
+          type: number
+          example: 3
+        hmInspection:
+          type: bool
+          example: true
+        placarableHmVehInsp:
+          type: bool
+          example: true
+        inspectionDate:
+          type: date
+          example: 2023-06-21T00:00:00.000Z
+        level:
+          type: number
+          example: 3
+        vehicles:
+          type: array
+          items:
+            $ref: "#components/responses/Vehicle"
+        violations:
+          type: array
+          items:
+            $ref: "#components/responses/Violation"

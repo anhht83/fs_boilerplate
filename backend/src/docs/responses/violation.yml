@@ -1,0 +1,23 @@
+components:
+  responses:
+    Violation:
+      type: object
+      properties:
+        id:
+          type: number
+          example: 1
+        code:
+          type: string
+          example: 392.2-ML
+        description:
+          type: string
+          example: Failure to Maintain Lane
+        basic:
+          type: object
+          properties:
+            id:
+              type: number
+              example: 1
+            name:
+              type: string
+              example: Unsafe Driving
