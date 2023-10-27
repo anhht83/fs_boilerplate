@@ -1,6 +1,7 @@
 import { MdUploadFile } from "react-icons/md";
 import React, { ChangeEvent, useRef } from "react";
 import { apiUploadInspections } from "@/apis/InspectionApi";
+import Button from "@/components/ui/button";
 
 const Import = ({ onSuccess }: any) => {
   const inputFileRef = useRef<HTMLInputElement>(null);
@@ -22,14 +23,16 @@ const Import = ({ onSuccess }: any) => {
   };
 
   return (
-    <div
+    <Button
       onClick={handleImport}
-      className="cursor-pointer bg-yellow-400 font-semibold text-sm px-4 py-2 flex justify-between gap-3 items-center">
+      color='primary'
+      className="flex justify-between gap-3 items-center"
+    >
       {mutation.isPending && mutation.progress < 100 && `Uploading ... ${mutation.progress}%`}
       {mutation.isPending && mutation.progress >= 100 && `Importing ... `}
       {!mutation.isPending && <>Upload <MdUploadFile size={16} /></>}
       <input accept=".xml" ref={inputFileRef} type="file" className="hidden" onChange={onFileChange} />
-    </div>
+    </Button>
   );
 };
 

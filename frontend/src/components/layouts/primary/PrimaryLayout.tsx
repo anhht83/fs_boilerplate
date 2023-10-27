@@ -6,7 +6,7 @@ export interface IPrimaryLayout {
 
 const PrimaryLayout: React.FC<IPrimaryLayout> = ({ children }) => (
   <div className="bg-gray-100 min-h-full">
-    <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 ">
+    <div className="mx-auto max-w-7xl p-6">
       {children}
     </div>
   </div>

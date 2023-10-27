@@ -1,7 +1,13 @@
 import React from "react";
 
 interface ITableComponent extends React.ForwardRefExoticComponent<any> {
-  [key: string]: any
+  THead: any;
+  TBody: any;
+  TFoot: any;
+  Th: any;
+  Tr: any;
+  Td: any;
+  Sorter: any;
 }
 
 const Table = React.forwardRef((props: any, ref: any) => {
@@ -11,7 +17,7 @@ const Table = React.forwardRef((props: any, ref: any) => {
     className = "",
     hoverable = true,
     compact = false,
-    oveerflow = true,
+    overflow = true,
     asElement: Component = "table",
     ...rest
   } = props;
@@ -24,7 +30,7 @@ const Table = React.forwardRef((props: any, ref: any) => {
   if (borderlessRow) tableClass.push("borderless-row");
 
   return (
-    <div className={`${oveerflow && "overflow-x-auto"}`}>
+    <div className={`${overflow && "overflow-x-auto"}`}>
       <Component className={tableClass.join(" ")} {...rest} ref={ref}>
         {children}
       </Component>

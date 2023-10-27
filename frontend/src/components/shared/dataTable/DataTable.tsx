@@ -40,6 +40,7 @@ const IndeterminateCheckbox = ((props: any) => {
 
 const DataTable = forwardRef((props: any, ref) => {
   const {
+    className = "",
     columns: columnsProp = [],
     data = [],
     loading = false,
@@ -186,7 +187,7 @@ const DataTable = forwardRef((props: any, ref) => {
 
   return (
     <Loading loading={loading} type="cover">
-      <Table>
+      <Table className={className}>
         <THead>
           {table.getHeaderGroups().map((headerGroup) => (
             <Tr key={headerGroup.id}>

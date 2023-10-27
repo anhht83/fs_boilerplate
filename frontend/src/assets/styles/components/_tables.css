@@ -14,7 +14,7 @@
 
         >tr {
             >td {
-                @apply px-2 py-4;
+                @apply px-2 py-3;
             }
         }
     }

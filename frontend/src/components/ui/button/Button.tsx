@@ -1,23 +1,34 @@
 export interface IButton {
-  color?: "default" | "primary" | "danger";
+  color?: "default" | "primary" | "danger" | "dark";
   children: any,
   onClick?: () => void;
   type?: "submit" | "reset" | "button" | undefined;
-  size?: string,
-  disabled: boolean
+  size?: "default" | "sm" | "xl",
+  disabled?: boolean,
+  className?: string,
+  dark?: boolean
 }
 
-const Button: React.FC<IButton> = ({ color = "default", size = "", children, ...rest }) => {
+const Button: React.FC<IButton> = ({ className, color = "default", size = "default", children, ...rest }) => {
   const bgColorVariants = {
-    default: "bg-gray-100  hover:bg-gray-50 border-0",
-    primary: "bg-blue-100 hover:bg-blue-500 text-white ",
+    default: "bg-gray-100  hover:bg-gray-50 border-0 ",
+    primary: "bg-yellow-300 hover:bg-yellow-200",
     danger: "bg-red-100 hover:bg-red-500 text-white ",
-    warning: "bg-orange-100 hover:bg-orange-500 text-white "
+    warning: "bg-orange-100 hover:bg-orange-500 text-white",
+    dark: "bg-gray-300  hover:bg-gray-100 border-0",
   };
+
+  const sizeVariants = {
+    default: "px-2 py-2 h-[26px]",
+    sm: "px-1 py-1",
+    xl: "px-4 py-3"
+  };
+
+
   return (
     <button
       {...rest}
-      className={`${bgColorVariants[color]} font-bold py-2 px-2 ${size} shadow-sm ring-0 sm:mt-0`}
+      className={`${className} ${bgColorVariants[color]} ${sizeVariants[size]} leading-4 text-sm font-semibold shadow-sm ring-0 mt-0`}
     >
       {children}
     </button>

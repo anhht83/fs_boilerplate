@@ -45,11 +45,11 @@ export const apiFetchInspections =
 
 // eslint-disable-next-line react-hooks/rules-of-hooks
 export const apiGetInspection =
-  (id: number, options = {}) => useQuery({
-    queryKey: ["inspection", id],
+  (reportNumber: any, options = {}) => useQuery({
+    queryKey: ["inspection", reportNumber],
     queryFn: async (): Promise<TInspection> => {
       const response: any = await Api.fetchData({
-        url: `/inspections/${id}`
+        url: `/inspections/${reportNumber}`
       });
       return response.data;
     },

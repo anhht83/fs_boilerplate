@@ -14,7 +14,7 @@ type TInspectionStatusProps = {
 const InspectionStatusCom = React.forwardRef((props: TInspectionStatusProps, ref) => {
     const { status, className = "" } = props;
     let wrapClasses = `inline-flex items-center gap-2 ${className}`;
-    let dotClasses = "h-[5px] w-[5px] rounded-full";
+    let dotClasses = "h-[6px] w-[6px] rounded-full";
     switch (status) {
       case "unresolved":
         dotClasses += " bg-orange-500";

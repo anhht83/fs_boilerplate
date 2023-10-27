@@ -2,10 +2,10 @@ import React from "react";
 import DataTable from "@/components/shared/dataTable";
 import moment from "moment-timezone";
 import { FaLink, FaTrailer, FaTruck, FaUser } from "react-icons/fa6";
-import { Unit } from "@/consts";
 import { TInspection, TInspectionTableData, TVehicle, TViolation } from "@/types/inspection";
 import { TSort, TTableDataRes } from "@/types/dataTable";
 import InspectionStatusCom from "@/components/shared/inspectionStatusCom";
+import A from "@/components/ui/a";
 
 type TInspectionTableProps = {
   tableData: TInspectionTableData,
@@ -54,7 +54,11 @@ const InspectionTable = ({ tableData, setTableData, data, isLoading }: TInspecti
       cell: (props: any) => {
         const row: TInspection = props.row.original;
         return (
-          <ShowRow row={row}>{row.reportNumber}</ShowRow>
+          <ShowRow row={row}>
+            <A href={`/inspections/${row.reportNumber}`}>
+              {row.reportNumber}
+            </A>
+          </ShowRow>
         );
       }
     },
@@ -65,7 +69,7 @@ const InspectionTable = ({ tableData, setTableData, data, isLoading }: TInspecti
         const { vehicles = [] }: TInspection = props.row.original;
         return (
           <ShowRow row={props.row.original}>
-            {vehicles.find((vehicle: TVehicle) => vehicle.vehicleType?.unit === Unit.TRUCK)?.licenseNumber ?? "-"}
+            {vehicles.find((vehicle: TVehicle) => vehicle.vehicleType?.unit === 1)?.licenseNumber ?? "-"}
           </ShowRow>
         );
       }
@@ -102,18 +106,18 @@ const InspectionTable = ({ tableData, setTableData, data, isLoading }: TInspecti
       id: "Links",
       cell: () => (
         <div className="flex gap-3 items-center">
-              <span className={`cursor-pointer`}>
-                <FaUser />
-              </span>
+          <span className={`cursor-pointer`}>
+            <FaUser />
+          </span>
           <span className="cursor-pointer">
-                <FaTruck />
-              </span>
+            <FaTruck />
+          </span>
           <span className="cursor-pointer">
-                <FaTrailer />
-              </span>
+            <FaTrailer />
+          </span>
           <span className="cursor-pointer">
-                <FaLink />
-              </span>
+            <FaLink />
+          </span>
         </div>
       )
     }
@@ -136,6 +140,7 @@ const InspectionTable = ({ tableData, setTableData, data, isLoading }: TInspecti
 
   return (
     <DataTable
+      className="border-t border-b"
       columns={columns}
       data={data?.rows ?? []}
       loading={isLoading}

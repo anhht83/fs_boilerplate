@@ -10,6 +10,6 @@ export const changeStatus = {
 
 export const getInspection = {
   params: Joi.object({
-    id: Joi.number().required()
+    reportNumber: Joi.string().required()
   })
 };

@@ -8,6 +8,7 @@ body > div:first-child,
 div#__next,
 div#__next > div {
     height: 100%;
+    font-size:13px;
     @apply bg-gray-200
 }
 

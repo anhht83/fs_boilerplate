@@ -3,7 +3,7 @@ import React from "react";
 const Th = React.forwardRef((props: any, ref) => {
   const { children, className = "", asElement: Component = "th", ...rest } = props;
 
-  const thClass = `font-normal border-t border-b items-center ${className}`;
+  const thClass = `font-normal items-center ${className}`;
 
   return (
     <Component className={thClass} {...rest} ref={ref}>

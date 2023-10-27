@@ -15,8 +15,11 @@ const Select = (props: any) => {
     }
   } = props;
 
-  let wrapClasses = `pl-2 py-1 inline-flex flex-row items-center gap-1 ${className}`;
+  let wrapClasses = `text-sm pl-2 py-1 inline-flex flex-row items-center gap-1 ${className}`;
   switch (color) {
+    case "dark":
+      wrapClasses = `${wrapClasses} bg-gray-300`;
+      break;
     case "info":
       wrapClasses = `${wrapClasses} bg-blue-100`;
       break;

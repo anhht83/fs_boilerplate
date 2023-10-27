@@ -1,14 +1,14 @@
 import { NextPageWithLayout } from "@/pages/page";
 import PrimaryLayout from "@/components/layouts/primary/PrimaryLayout";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 const Home: NextPageWithLayout = () => {
-  // filter items by status
-
-  return (
-    <>
-      index
-    </>
-  );
+  const { push } = useRouter();
+  useEffect(() => {
+    push("/inspections");
+  }, []);
+  return null;
 };
 
 Home.getLayout = (page) => {

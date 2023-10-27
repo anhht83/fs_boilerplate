@@ -15,7 +15,7 @@ export type TVehicle = {
   licenseNumber: string,
   licenseState: string,
   vin: string,
-  vehicleType?: TVehicleType,
+  vehicleType: TVehicleType,
   vehicleTypeId?: number
 }
 
