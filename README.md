@@ -35,10 +35,8 @@ DB_PORT=3306
 ```
 - Migrate database
 ```bash
-# move to your backend dir
-cd backend
-# Run command to migrate/seed database
-yarn sequelize db:migrate
+# Run command to migrate database
+yarn migrate
 ```
 **NOTE**: Sequelize support multiple RMDBs. You'll also have to manually install the driver for your database of choice:
 ```bash
@@ -55,26 +53,9 @@ $ yarn add --save oracledb # Oracle Database
 ```bash
 # Run development from your root dir of the apps to run both frontend and backend app
 yarn dev
-
-# after run successful, access the link below to check your installation
-http://locahost:3000
-
-# API document
-http://locahost:3001/docs
 ```
-### Test & Code format validation
-```bash
-# Run test
-yarn test
+After run successful, access the link below to check your installation http://localhost:3000, and API document http://localhost:3001/docs
 
-# Validate code
-yarn lint
-
-# Format code
-yarn format
-#or
-yarn pretty
-```
 
 ### Build code and deployment
 ```bash
@@ -88,6 +69,8 @@ Pls check `frontend/README.md` for detail
 # Backend Development
 Pls check `backend/README.md` for detail
 
-# Connect
+# Database Models
+![Database models](./misc/db.png)
 
+# Connect
 **Anh Tuan Hoang** <anhht83@gmail.com>  https://github.com/anhht83

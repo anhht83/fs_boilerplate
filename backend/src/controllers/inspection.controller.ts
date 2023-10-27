@@ -340,7 +340,6 @@ class InspectionController {
         });
 
       await inspection.update({ status: status as TInspectionStatus });
-
       return res.json(inspection);
     } catch (error) {
       return next(error);

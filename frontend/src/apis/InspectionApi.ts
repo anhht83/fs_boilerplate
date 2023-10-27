@@ -2,7 +2,7 @@ import Api from "./Api";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { TTableDataRes } from "@/types/dataTable";
 import { useState } from "react";
-import { TBasic, TInspection, TInspectionTableData } from "@/types/inspection";
+import { TBasic, TInspection, TInspectionChangeStatusReq, TInspectionTableData } from "@/types/inspection";
 
 export const apiUploadInspections = () => {
   const [progress, setProgress] = useState(0);
@@ -31,9 +31,9 @@ export const apiFetchInspections =
      pageSize = 10,
      sort = null,
      query = null
-   }: TInspectionTableData, options = {}) => useQuery({
+   }: TInspectionTableData, options = {}) => useQuery<TTableDataRes<TInspection>>({
     queryKey: ["inspections", { pageIndex, pageSize, sort, query }],
-    queryFn: async (): Promise<TTableDataRes<TInspection>> => {
+    queryFn: async () => {
       const response: any = await Api.fetchData({
         url: `/inspections`,
         params: { pageIndex, pageSize, sort, query }
@@ -56,6 +56,18 @@ export const apiGetInspection =
     ...options
   });
 
+// eslint-disable-next-line react-hooks/rules-of-hooks
+export const apiChangeStatusInspection =
+  (options = {}) => useMutation({
+    mutationKey: ["changeStatusInspection"],
+    mutationFn: async ({ id, status }: TInspectionChangeStatusReq): Promise<TInspection> => {
+      const response: any = await Api.fetchData({
+        url: `/inspections/${id}/${status}`
+      });
+      return response.data;
+    },
+    ...options
+  });
 
 // eslint-disable-next-line react-hooks/rules-of-hooks
 export const apiFetchBasics =

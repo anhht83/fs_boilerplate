@@ -7,7 +7,8 @@
     "build": "concurrently \"cd frontend && yarn build\" \"cd backend && yarn build\"",
     "setup:frontend": "cd frontend && yarn",
     "setup:backend": "cd backend && yarn",
-    "setup": "concurrently yarn \"yarn setup:frontend\" \"yarn setup:backend\""
+    "setup": "yarn && yarn setup:frontend && yarn setup:backend",
+    "migrate": "cd backend && yarn sequelize db:migrate"
   },
   "dependencies": {
     "concurrently": "^7.6.0"

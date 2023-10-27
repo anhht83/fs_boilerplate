@@ -1,5 +1,5 @@
 export const InspectionStatus = {
-  resolved: "Resolves",
+  resolved: "Resolved",
   unresolved: "Unresolved",
   noViolation: "No Violation"
 };

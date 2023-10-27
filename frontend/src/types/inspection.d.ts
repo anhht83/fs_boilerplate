@@ -59,6 +59,11 @@ export type TInspection = {
   violations?: TViolation[],
 }
 
+export type TInspectionChangeStatusReq = {
+  id: any,
+  status: TInspectionStatus
+}
+
 
 /* datatable */
 export type TInspectionQuery = {

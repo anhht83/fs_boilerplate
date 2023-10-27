@@ -1,3 +1,4 @@
+import React from "react";
 import { NextPageWithLayout } from "@/pages/page";
 import PrimaryLayout from "@/components/layouts/primary/PrimaryLayout";
 
@@ -9,6 +10,7 @@ import { useState } from "react";
 import { apiFetchInspections } from "@/apis/InspectionApi";
 import InspectionFilter from "@/pages/inspections/components/InspactionFilter";
 import { TInspectionTableData } from "@/types/inspection";
+import Alert from "@/components/ui/alert";
 
 const Inspections: NextPageWithLayout = () => {
 
@@ -20,13 +22,15 @@ const Inspections: NextPageWithLayout = () => {
   });
   const { pageIndex, pageSize, sort, query } = tableData;
 
-  const fetchInspections = apiFetchInspections({ pageIndex, pageSize, sort, query });
+  const { isLoading, data, error, refetch } = apiFetchInspections({ pageIndex, pageSize, sort, query });
+
 
   return (
     <section className="py-6 text-sm">
+      {error && <Alert>{error.response?.data?.message ?? error.message}</Alert>}
       <div className="flex flex-row justify-between items-center">
         <H1>DOT Inspections</H1>
-        <Import onSuccess={() => fetchInspections.refetch()} />
+        <Import onSuccess={() => refetch()} />
       </div>
       <Card>
         <InspectionFilter
@@ -39,7 +43,7 @@ const Inspections: NextPageWithLayout = () => {
               query: values
             }));
           }}
-          isLoading={fetchInspections.isLoading}
+          isLoading={isLoading}
         />
         <InspectionTable
           tableData={tableData}
@@ -49,8 +53,8 @@ const Inspections: NextPageWithLayout = () => {
               ...values
             }));
           }}
-          data={fetchInspections.data}
-          isLoading={fetchInspections.isLoading}
+          data={data}
+          isLoading={isLoading}
         />
       </Card>
     </section>

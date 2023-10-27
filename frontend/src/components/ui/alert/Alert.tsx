@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 import CloseButton from "../closeButton";
 import StatusIcon from "../statusIcon";
 
-const DEFAULT_TYPE = "warning";
+const DEFAULT_TYPE = "danger";
 
 const TYPE_MAP: any = {
   success: {
@@ -49,7 +49,7 @@ const Alert = React.forwardRef((props: any, ref) => {
     className,
     children,
     title='',
-    showIcon=false,
+    showIcon=true,
     customIcon,
     closable=false,
     customClose,

@@ -74,10 +74,10 @@ Inspection.init({
     type: DataTypes.STRING,
     get() {
       const status = this.getDataValue("status");
-      const violations = this.violations;
-      if (!violations.length) return InspectionStatus.noViolation;
       if (status) return status;
-      else return InspectionStatus.unresolved;
+      const violations = this.violations;
+      if (!violations || !violations.length) return InspectionStatus.noViolation;
+      return InspectionStatus.unresolved;
     }
   }
 }, {
