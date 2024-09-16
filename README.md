@@ -1,4 +1,4 @@
-# Fullstack assignment
+# Fullstack Boilerplate
 
 Express, Sequelize, NextJs, ReactJs, Tailwindcss, TypeScript
 
